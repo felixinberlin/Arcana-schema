@@ -7,22 +7,15 @@ import React, { useState } from 'react';
 import {
   Compass,
   FileCheck,
-  BookOpen,
   Sparkles,
   Layers,
-  FolderGit2,
-  ExternalLink,
   Code2,
-  ShieldCheck,
-  Github,
-  Zap,
 } from 'lucide-react';
 import { VisualSpreadCanvas } from './components/VisualSpreadCanvas.tsx';
 import { LiveValidator } from './components/LiveValidator.tsx';
 import { CatalogExplorer } from './components/CatalogExplorer.tsx';
 import { ReadingSimulator } from './components/ReadingSimulator.tsx';
 import { SchemaReference } from './components/SchemaReference.tsx';
-import { GitHubExporter } from './components/GitHubExporter.tsx';
 import { CANONICAL_SPREADS, CELTIC_CROSS_SPREAD } from './schema/catalogData.ts';
 import type { TarotSpreadDefinition } from './schema/types.ts';
 
@@ -31,8 +24,7 @@ type ActiveTab =
   | 'validator'
   | 'catalog'
   | 'reading'
-  | 'schema'
-  | 'github';
+  | 'schema';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('studio');
@@ -73,17 +65,6 @@ export default function App() {
                 Open Source JSON Specification for Tarot Spreads & Readings
               </p>
             </div>
-          </div>
-
-          {/* Actions & Repo info */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setActiveTab('github')}
-              className="px-3.5 py-1.5 text-xs font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white flex items-center gap-2 transition-all shadow-md shadow-indigo-600/20"
-            >
-              <FolderGit2 className="w-3.5 h-3.5" />
-              <span>Export for GitHub</span>
-            </button>
           </div>
         </div>
 
@@ -148,18 +129,6 @@ export default function App() {
             <Code2 className="w-3.5 h-3.5" />
             Schema Reference
           </button>
-
-          <button
-            onClick={() => setActiveTab('github')}
-            className={`py-3 px-4 text-xs font-medium flex items-center gap-2 border-b-2 transition-colors whitespace-nowrap ${
-              activeTab === 'github'
-                ? 'border-indigo-500 text-indigo-300 font-semibold'
-                : 'border-transparent text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <FolderGit2 className="w-3.5 h-3.5" />
-            GitHub Publishing
-          </button>
         </div>
       </header>
 
@@ -219,8 +188,6 @@ export default function App() {
         {activeTab === 'reading' && <ReadingSimulator />}
 
         {activeTab === 'schema' && <SchemaReference />}
-
-        {activeTab === 'github' && <GitHubExporter />}
       </main>
 
       {/* Footer */}

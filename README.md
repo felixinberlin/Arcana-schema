@@ -64,12 +64,14 @@ arcana-schema/
 
 ## 📚 Specification Documentation
 
+- **[Formal Standard Specification (v2.0.0)](SPECIFICATION.md)**: **The authoritative, normative Arcana Schema Specification** defining conformance targets, data models, spatial coordinate invariants, graph relation semantics, deterministic rendering rules, and card naming vocabularies.
 - **[Schema Design Rationale](docs/schema-design.md)**: Explains `unevaluatedProperties: false`, modular `$defs`, resolvable `$id` URLs, and format assertions.
 - **[Standardized Error Format](docs/error-format.md)**: The non-throwing `ValidationError` interface and determinism guarantees.
 - **[Semantic Versioning Policy](docs/versioning.md)**: Rules for breaking vs non-breaking changes and CI automated enforcement.
 - **[Draft-7 Compatibility Mirror](docs/draft7-mirror.md)**: Using Arcana Schema in SchemaStore, VS Code, and legacy Draft 7 tooling.
 - **[Schema.org / JSON-LD Mapping](docs/schema-org-mapping.md)**: Semantic web interoperability using `DefinedTermSet` and `Event`.
 - **[Deterministic Rendering Module](docs/rendering.md)**: Formatting validated JSON into plain text and Markdown.
+- **[GitHub Pages Deployment Guide](docs/github-pages.md)**: Instructions for publishing the live interactive standard and schema endpoints to GitHub Pages.
 
 ---
 

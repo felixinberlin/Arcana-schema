@@ -1,0 +1,45 @@
+{
+  "@context": "https://arcanaschema.org/contexts/tarot.jsonld",
+  "@type": "Event",
+  "schemaVersion": "1.0.0",
+  "readingId": "7d9c6b84-48f5-442a-9e12-b9e315538e82",
+  "spreadId": "past-present-future",
+  "drawnAt": "2026-09-26T12:00:00Z",
+  "startDate": "2026-09-26T12:00:00Z",
+  "question": "How should I navigate open source specification development?",
+  "querent": {
+    "name": "Morgan Riley"
+  },
+  "reader": {
+    "name": "Arcana Oracle",
+    "system": "RWS"
+  },
+  "deck": {
+    "name": "Smith-Waite Centennial Tarot Deck",
+    "reversals": true
+  },
+  "cards": [
+    {
+      "slotId": "past",
+      "cardId": "major-01-the-magician",
+      "orientation": "upright",
+      "notes": "Foundational technical skills and clear intention."
+    },
+    {
+      "slotId": "present",
+      "cardId": "swords-08",
+      "orientation": "reversed",
+      "notes": "Stepping out of perceived blindfolds and isolation."
+    },
+    {
+      "slotId": "future",
+      "cardId": "wands-03",
+      "orientation": "upright",
+      "notes": "Collaboration and ships arriving across the open sea."
+    }
+  ],
+  "interpretation": {
+    "summary": "Mastery of tools frees the querent from hesitation, establishing wide open-source adoption."
+  },
+  "notes": "Reading conducted with focused breath meditation."
+}

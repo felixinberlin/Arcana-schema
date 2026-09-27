@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "three-card",
+  "name": "General Three Card Spread",
+  "summary": "Flexible three-card line for any triadic interpretation (Mind/Body/Spirit, Situation/Action/Outcome).",
+  "layoutType": "linear",
+  "difficulty": "beginner",
+  "deckContract": {
+    "minCards": 3,
+    "deckType": "full_78",
+    "allowReversals": true
+  },
+  "slots": [
+    { "id": "card-1", "order": 1, "role": "Position 1", "layout": { "x": 0.25, "y": 0.5 } },
+    { "id": "card-2", "order": 2, "role": "Position 2", "layout": { "x": 0.5, "y": 0.5 } },
+    { "id": "card-3", "order": 3, "role": "Position 3", "layout": { "x": 0.75, "y": 0.5 } }
+  ],
+  "relations": [
+    { "source": "card-1", "target": "card-2", "type": "adjacent_to" },
+    { "source": "card-2", "target": "card-3", "type": "adjacent_to" }
+  ]
+}

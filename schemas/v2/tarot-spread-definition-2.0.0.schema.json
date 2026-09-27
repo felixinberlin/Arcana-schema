@@ -1,0 +1,308 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/tarot-spread-definition-2.0.0.schema.json",
+  "title": "TarotSpreadDefinition",
+  "description": "Formal specification for a reusable tarot spread template, defining positions, visual layout coordinates, deck constraints, and positional relationships.",
+  "type": "object",
+  "minProperties": 1,
+  "unevaluatedProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "name",
+    "deckContract",
+    "slots",
+    "relations"
+  ],
+  "properties": {
+    "@context": {
+      "title": "JSON-LD Context URL",
+      "description": "Optional JSON-LD context URL for Schema.org semantic interoperability and graph expansion.",
+      "type": "string",
+      "format": "uri",
+      "enum": [
+        "https://schema.org",
+        "https://arcanaschema.org/contexts/tarot.jsonld"
+      ],
+      "examples": [
+        "https://schema.org",
+        "https://arcanaschema.org/contexts/tarot.jsonld"
+      ]
+    },
+    "@type": {
+      "title": "Schema.org Type",
+      "description": "Schema.org entity classification corresponding to an authoritative spread template.",
+      "type": "string",
+      "enum": ["DefinedTermSet"],
+      "examples": ["DefinedTermSet"]
+    },
+    "schemaVersion": {
+      "title": "Specification Version",
+      "description": "Semantic specification version of the TarotSpreadDefinition schema.",
+      "type": "string",
+      "const": "2.0.0",
+      "examples": ["2.0.0"]
+    },
+    "id": {
+      "title": "Spread Identifier",
+      "description": "Unique URL-safe kebab-case identifier for this spread template.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "examples": ["past-present-future", "celtic-cross", "decision-fork"]
+    },
+    "name": {
+      "title": "Spread Name",
+      "description": "Human-readable display name of the spread.",
+      "type": "string",
+      "minLength": 1,
+      "examples": ["Past, Present, Future", "Celtic Cross", "Two-Path Decision"]
+    },
+    "summary": {
+      "title": "Spread Summary",
+      "description": "Concise single-sentence summary of the spread's purpose, inquiry scope, and general application.",
+      "type": "string",
+      "examples": ["Classic 3-card linear temporal progression mapping development over time."]
+    },
+    "layoutType": {
+      "title": "Geometric Layout Type",
+      "description": "Spatial geometric layout arrangement of the card positions on a board.",
+      "type": "string",
+      "enum": ["linear", "cross", "circular", "symbolic", "triangular", "custom"],
+      "examples": [
+        "linear",
+        "cross",
+        "circular",
+        "symbolic",
+        "triangular",
+        "custom"
+      ]
+    },
+    "difficulty": {
+      "title": "Difficulty Level",
+      "description": "Recommended practitioner experience level necessary to synthesize this spread.",
+      "type": "string",
+      "enum": ["beginner", "easy", "intermediate", "advanced", "expert"],
+      "examples": [
+        "beginner",
+        "easy",
+        "intermediate",
+        "advanced",
+        "expert"
+      ]
+    },
+    "author": {
+      "title": "Creator or Tradition",
+      "description": "Author, originator, or traditional historical lineage of this spread design.",
+      "type": "string",
+      "examples": ["Arthur Edward Waite", "Traditional 18th Century", "Papus (Gérard Encausse)"]
+    },
+    "license": {
+      "title": "Documentation License",
+      "description": "Open content license governing the spread layout text and position descriptions.",
+      "type": "string",
+      "default": "CC-BY-4.0",
+      "examples": ["CC-BY-4.0", "CC0-1.0", "MIT"]
+    },
+    "tags": {
+      "title": "Topical Tags",
+      "description": "Searchable categorical tags characterizing this spread's application domains.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "examples": [
+        ["general", "daily", "temporal"],
+        ["decision", "career", "choice"]
+      ]
+    },
+    "instructions": {
+      "title": "Practitioner Instructions",
+      "description": "Step-by-step guidance covering preparation, shuffling, drawing, and interpretive synthesis.",
+      "$ref": "#/$defs/instructions"
+    },
+    "deckContract": {
+      "title": "Deck Contract Constraints",
+      "description": "Rules specifying the minimum tarot deck composition and reversal support needed for this spread.",
+      "$ref": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/_shared/deck-contract.defs.json"
+    },
+    "readingVariants": {
+      "title": "Alternative Reading Variants",
+      "description": "Alternative thematic lenses or role remappings that can be applied to this physical layout.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/readingVariant"
+      },
+      "examples": [
+        [
+          {
+            "id": "mind-body-spirit",
+            "name": "Mind, Body, Spirit",
+            "description": "Holistic wellbeing lens.",
+            "slotOverrides": [
+              { "slotId": "past", "role": "Mental State", "description": "Current cognitive focus." },
+              { "slotId": "present", "role": "Physical Health", "description": "Somatic energy." },
+              { "slotId": "future", "role": "Spiritual Growth", "description": "Intuitive path." }
+            ]
+          }
+        ]
+      ]
+    },
+    "slots": {
+      "title": "Spread Slots",
+      "description": "Ordered sequence of card positions composing the spread.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/_shared/slot.defs.json"
+      }
+    },
+    "hasDefinedTerm": {
+      "title": "Schema.org Defined Terms (Slots)",
+      "description": "Schema.org DefinedTermSet mapping equivalent to slots for semantic consumers.",
+      "type": "array",
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/_shared/slot.defs.json"
+      }
+    },
+    "relations": {
+      "title": "Card Relationships",
+      "description": "Directed semantic relationships connecting pairs of card positions.",
+      "type": "array",
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/_shared/relation.defs.json"
+      }
+    },
+    "elementalDignity": {
+      "title": "Elemental Dignity Configuration",
+      "description": "Local rules governing elemental compatibility calculations across adjacent slots.",
+      "$ref": "#/$defs/elementalDignityRule"
+    }
+  },
+  "$defs": {
+    "instructions": {
+      "title": "SpreadInstructions",
+      "description": "Procedural ritual and analytical instructions for performing the spread.",
+      "type": "object",
+      "minProperties": 1,
+      "unevaluatedProperties": false,
+      "properties": {
+        "preparation": {
+          "title": "Preparation",
+          "description": "Pre-shuffle centering, query refinement, and intention formulation guidance.",
+          "type": "string",
+          "examples": ["Sit quietly and center your thoughts on the specific question."]
+        },
+        "shuffle": {
+          "title": "Shuffling",
+          "description": "Card shuffling protocol and selection procedure.",
+          "type": "string",
+          "examples": ["Shuffle three times while holding the query in mind, then cut the deck into three piles."]
+        },
+        "drawing": {
+          "title": "Drawing Procedure",
+          "description": "Order and spatial placement instructions for laying out cards.",
+          "type": "string",
+          "examples": ["Draw from left to right, placing cards face down in slots 1, 2, and 3 before revealing."]
+        },
+        "synthesis": {
+          "title": "Interpretive Synthesis",
+          "description": "Instructions for weaving the individual slot meanings into an integrated holistic narrative.",
+          "type": "string",
+          "examples": ["Examine the trajectory from past roots to present circumstances before analyzing the outcome."]
+        }
+      }
+    },
+    "readingVariant": {
+      "title": "ReadingVariantDefinition",
+      "description": "Alternative interpretive framing overriding slot roles for an existing spatial layout.",
+      "type": "object",
+      "minProperties": 1,
+      "unevaluatedProperties": false,
+      "required": ["id", "name", "slotOverrides"],
+      "properties": {
+        "id": {
+          "title": "Variant Identifier",
+          "description": "Unique URL-safe kebab-case identifier for this variant.",
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "examples": ["mind-body-spirit", "situation-action-outcome"]
+        },
+        "name": {
+          "title": "Variant Name",
+          "description": "Display name of the reading variant.",
+          "type": "string",
+          "minLength": 1,
+          "examples": ["Mind, Body, Spirit", "Situation, Action, Outcome"]
+        },
+        "description": {
+          "title": "Variant Description",
+          "description": "Detailed explanation of this variant's inquiry paradigm.",
+          "type": "string",
+          "examples": ["Reinterprets the three linear slots as holistic personal dimensions."]
+        },
+        "slotOverrides": {
+          "title": "Slot Overrides",
+          "description": "Collection of slot redefinitions overriding default roles.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "minProperties": 1,
+            "unevaluatedProperties": false,
+            "required": ["slotId", "role"],
+            "properties": {
+              "slotId": {
+                "title": "Target Slot Identifier",
+                "description": "ID of the slot being overridden.",
+                "type": "string",
+                "examples": ["past", "present", "future"]
+              },
+              "role": {
+                "title": "Overridden Role Title",
+                "description": "New interpretive role assigned to this slot under this variant.",
+                "type": "string",
+                "examples": ["Mind (Intellect)", "Body (Physical Realm)", "Spirit (Aspiration)"]
+              },
+              "description": {
+                "title": "Overridden Role Description",
+                "description": "Specific meaning of the slot under this variant.",
+                "type": "string",
+                "examples": ["Cognitive clarity and conscious thought patterns."]
+              }
+            }
+          }
+        }
+      }
+    },
+    "elementalDignityRule": {
+      "title": "ElementalDignityRuleDefinition",
+      "description": "Rules for calculating elemental affinities between cards in adjacent spread slots.",
+      "type": "object",
+      "minProperties": 1,
+      "unevaluatedProperties": false,
+      "properties": {
+        "enabled": {
+          "title": "Enable Elemental Dignities",
+          "description": "Whether elemental dignity calculations should be performed.",
+          "type": "boolean",
+          "default": false,
+          "examples": [true, false]
+        },
+        "mode": {
+          "title": "Dignity Calculation Mode",
+          "description": "Esoteric calculation standard to apply.",
+          "type": "string",
+          "enum": ["golden_dawn", "triplicity", "neutral"],
+          "default": "golden_dawn",
+          "examples": ["golden_dawn", "triplicity", "neutral"]
+        },
+        "notes": {
+          "title": "Notes",
+          "description": "Special considerations for elemental weighting.",
+          "type": "string",
+          "examples": ["Fire and Water weaken each other; Fire and Air strengthen each other."]
+        }
+      }
+    }
+  }
+}

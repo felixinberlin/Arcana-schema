@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "decision",
+  "name": "Two-Path Decision",
+  "summary": "A five-card branched spread evaluating two diverging choices, their proximate consequences, and core synthesis.",
+  "layoutType": "triangular",
+  "difficulty": "intermediate",
+  "author": "Traditional",
+  "license": "CC-BY-4.0",
+  "tags": ["choices", "crossroads", "decision", "career"],
+  "instructions": {
+    "preparation": "Clearly state Choice A and Choice B as mutually exclusive options.",
+    "shuffle": "Shuffle while holding the intention of unbiased clarity.",
+    "drawing": "Card 1 at the base is Current Crossroads. Left wing: Card 2 (Path A), Card 4 (Outcome A). Right wing: Card 3 (Path B), Card 5 (Outcome B).",
+    "synthesis": "Compare the energetic resonance between the left branch (Path A) and the right branch (Path B)."
+  },
+  "deckContract": {
+    "minCards": 5,
+    "deckType": "full_78",
+    "allowReversals": true,
+    "requiresSignificator": false
+  },
+  "slots": [
+    {
+      "id": "crossroads-core",
+      "order": 1,
+      "role": "The Crossroads",
+      "description": "Current status, heart of the decision, and fundamental dilemma.",
+      "layout": { "x": 0.5, "y": 0.8, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "path-a-nature",
+      "order": 2,
+      "role": "Path A: Immediate Reality",
+      "description": "The nature, energetic commitment, and experience of selecting Option A.",
+      "layout": { "x": 0.28, "y": 0.48, "rotation": -10, "zIndex": 0 }
+    },
+    {
+      "id": "path-b-nature",
+      "order": 3,
+      "role": "Path B: Immediate Reality",
+      "description": "The nature, energetic commitment, and experience of selecting Option B.",
+      "layout": { "x": 0.72, "y": 0.48, "rotation": 10, "zIndex": 0 }
+    },
+    {
+      "id": "path-a-outcome",
+      "order": 4,
+      "role": "Path A: Long-term Result",
+      "description": "The likely long-term outcome and harvest of proceeding with Path A.",
+      "layout": { "x": 0.2, "y": 0.2, "rotation": -15, "zIndex": 0 }
+    },
+    {
+      "id": "path-b-outcome",
+      "order": 5,
+      "role": "Path B: Long-term Result",
+      "description": "The likely long-term outcome and harvest of proceeding with Path B.",
+      "layout": { "x": 0.8, "y": 0.2, "rotation": 15, "zIndex": 0 }
+    }
+  ],
+  "relations": [
+    {
+      "source": "crossroads-core",
+      "target": "path-a-nature",
+      "type": "leads_to",
+      "label": "Branching into Choice A"
+    },
+    {
+      "source": "crossroads-core",
+      "target": "path-b-nature",
+      "type": "leads_to",
+      "label": "Branching into Choice B"
+    },
+    {
+      "source": "path-a-nature",
+      "target": "path-a-outcome",
+      "type": "culminates_in",
+      "label": "Evolution of Path A"
+    },
+    {
+      "source": "path-b-nature",
+      "target": "path-b-outcome",
+      "type": "culminates_in",
+      "label": "Evolution of Path B"
+    },
+    {
+      "source": "path-a-nature",
+      "target": "path-b-nature",
+      "type": "opposes",
+      "label": "Alternative Contrast"
+    }
+  ]
+}

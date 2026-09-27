@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "readingId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "spreadId": "past-present-future",
+  "question": "How should I navigate my upcoming career transition to technical writing?",
+  "drawnAt": "2026-09-26T12:00:00Z",
+  "querent": {
+    "name": "Rowan Vance"
+  },
+  "reader": {
+    "name": "Arcana Reader",
+    "system": "RWS"
+  },
+  "deck": {
+    "name": "Smith-Waite Centennial Tarot Deck",
+    "reversals": true
+  },
+  "cards": [
+    {
+      "slotId": "past",
+      "cardId": "major-01-the-magician",
+      "orientation": "upright",
+      "notes": "Acquired versatile multi-disciplinary skills and prepared resources."
+    },
+    {
+      "slotId": "present",
+      "cardId": "swords-08",
+      "orientation": "reversed",
+      "notes": "Breaking free of self-imposed cognitive traps or imposter doubts."
+    },
+    {
+      "slotId": "future",
+      "cardId": "wands-03",
+      "orientation": "upright",
+      "notes": "Ships arriving in harbor: long-range vision crystallizing and horizons widening."
+    }
+  ],
+  "interpretation": {
+    "summary": "You possess all tools required. Releasing limiting self-perceptions now directly unlocks vast expansion.",
+    "synthesis": "The Magician's mastery fuels the release of Swords 8 into the expansive vantage of the Three of Wands.",
+    "actionableAdvice": "Submit the portfolio immediately; hesitation is purely perceptual."
+  },
+  "notes": "Querent felt deep resonance with the Magician's infinity lemniscate symbol."
+}

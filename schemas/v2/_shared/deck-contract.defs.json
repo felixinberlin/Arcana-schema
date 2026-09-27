@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/_shared/deck-contract.defs.json",
+  "title": "DeckContractDefinition",
+  "description": "Rules specifying the minimum physical or virtual tarot deck composition needed to deal the spread.",
+  "type": "object",
+  "minProperties": 1,
+  "unevaluatedProperties": false,
+  "required": ["minCards"],
+  "properties": {
+    "minCards": {
+      "title": "Minimum Cards Required",
+      "description": "Minimum count of distinct physical or digital cards needed in the deck to deal the spread.",
+      "type": "integer",
+      "minimum": 1,
+      "examples": [1, 3, 5, 10, 78]
+    },
+    "maxCards": {
+      "title": "Maximum Cards Allowed",
+      "description": "Upper bound on drawn cards if optional clarifiers or expansion draws are allowed.",
+      "type": "integer",
+      "minimum": 1,
+      "examples": [3, 10, 15, 78]
+    },
+    "deckType": {
+      "title": "Compatible Deck Type",
+      "description": "Deck structure standard or category suitable for executing the spread.",
+      "type": "string",
+      "enum": [
+        "full_78",
+        "major_arcana_only",
+        "minor_arcana_only",
+        "court_only",
+        "lenormand_36",
+        "oracle_any"
+      ],
+      "default": "full_78",
+      "examples": [
+        "full_78",
+        "major_arcana_only",
+        "minor_arcana_only",
+        "court_only",
+        "lenormand_36",
+        "oracle_any"
+      ]
+    },
+    "allowReversals": {
+      "title": "Allow Inverted Orientations",
+      "description": "Whether inverted or reversed card orientations are recognized and assigned distinct meanings.",
+      "type": "boolean",
+      "default": true,
+      "examples": [true, false]
+    },
+    "requiresSignificator": {
+      "title": "Requires Significator",
+      "description": "Whether an intentional significator card must be isolated prior to shuffling and drawing.",
+      "type": "boolean",
+      "default": false,
+      "examples": [false, true]
+    }
+  }
+}

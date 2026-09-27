@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "invalid-mincards-too-small",
+  "name": "Invalid: minCards Less Than Slots",
+  "summary": "Demonstrates cross-field violation: deckContract.minCards (2) is less than required slots count (3).",
+  "layoutType": "linear",
+  "difficulty": "beginner",
+  "deckContract": {
+    "minCards": 2
+  },
+  "slots": [
+    { "id": "slot-1", "order": 1, "role": "First", "layout": { "x": 0.2, "y": 0.5 } },
+    { "id": "slot-2", "order": 2, "role": "Second", "layout": { "x": 0.5, "y": 0.5 } },
+    { "id": "slot-3", "order": 3, "role": "Third", "layout": { "x": 0.8, "y": 0.5 } }
+  ],
+  "relations": []
+}

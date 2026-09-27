@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/latest/catalog.schema.json",
+  "title": "TarotSpreadCatalog (Latest)",
+  "description": "Alias pointing to the latest version of TarotSpreadCatalog schema.",
+  "$ref": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/tarot-spread-catalog-2.0.0.schema.json"
+}

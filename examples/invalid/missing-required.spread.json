@@ -1,0 +1,7 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "invalid-missing-required",
+  "name": "Invalid: Missing Required Fields",
+  "summary": "Demonstrates JSON schema violation: missing required 'deckContract' and 'slots'.",
+  "layoutType": "linear"
+}

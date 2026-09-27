@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/_shared/relation.defs.json",
+  "title": "SlotRelationDefinition",
+  "description": "Directed or symmetrical semantic relationship edge connecting two card positions in a spread graph.",
+  "type": "object",
+  "minProperties": 1,
+  "unevaluatedProperties": false,
+  "required": ["source", "target", "type"],
+  "properties": {
+    "source": {
+      "title": "Source Slot Identifier",
+      "description": "Slot ID identifying the origin node in the relation edge.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "examples": ["past", "situation", "root"]
+    },
+    "target": {
+      "title": "Target Slot Identifier",
+      "description": "Slot ID identifying the destination node in the relation edge.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "examples": ["present", "challenge", "outcome"]
+    },
+    "type": {
+      "title": "Relationship Type",
+      "description": "Semantic modality describing how the source card affects or interacts with the target card.",
+      "type": "string",
+      "enum": [
+        "leads_to",
+        "crosses",
+        "grounds",
+        "crowns",
+        "mirrors",
+        "opposes",
+        "clarifies",
+        "culminates_in",
+        "adjacent_to"
+      ],
+      "examples": [
+        "leads_to",
+        "crosses",
+        "grounds",
+        "crowns",
+        "mirrors",
+        "opposes",
+        "clarifies",
+        "culminates_in",
+        "adjacent_to"
+      ]
+    },
+    "label": {
+      "title": "Relationship Label",
+      "description": "Optional human-readable label or description explaining the dynamic between the slots.",
+      "type": "string",
+      "examples": ["Underlying tension", "Catalyst for transformation", "Direct obstruction"]
+    },
+    "weight": {
+      "title": "Relationship Significance Weight",
+      "description": "Normalized scalar indicating relative analytical weight in synthesis (1.0 = standard significance).",
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "default": 1.0,
+      "examples": [0.5, 0.8, 1.0]
+    }
+  }
+}

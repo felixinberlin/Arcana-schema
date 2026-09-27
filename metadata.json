@@ -1,0 +1,6 @@
+{
+  "name": "Arcana Schema - Tarot Open Source JSON Specification",
+  "description": "An open-source JSON Schema standard for tarot spread definitions, reading records, catalog manifests, and cross-field validation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

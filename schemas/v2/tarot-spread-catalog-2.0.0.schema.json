@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/tarot-spread-catalog-2.0.0.schema.json",
+  "title": "TarotSpreadCatalog",
+  "description": "Formal schema for a multi-spread collection or registry catalog, containing metadata and conforming TarotSpreadDefinition entries.",
+  "type": "object",
+  "minProperties": 1,
+  "unevaluatedProperties": false,
+  "required": ["schemaVersion", "metadata", "spreads"],
+  "properties": {
+    "schemaVersion": {
+      "title": "Specification Version",
+      "description": "Catalog specification semantic version.",
+      "type": "string",
+      "const": "2.0.0",
+      "examples": ["2.0.0"]
+    },
+    "metadata": {
+      "title": "Catalog Metadata",
+      "description": "Descriptive metadata regarding this catalog registry, maintainers, and repository.",
+      "$ref": "#/$defs/catalogMetadata"
+    },
+    "elementalDignityRules": {
+      "title": "Elemental Dignity Matrix",
+      "description": "Global elemental dignity matrix applied across catalog spreads if enabled.",
+      "type": "object",
+      "minProperties": 1,
+      "unevaluatedProperties": false,
+      "properties": {
+        "active": {
+          "title": "Active",
+          "description": "Whether elemental dignities are active by default.",
+          "type": "boolean",
+          "default": true,
+          "examples": [true, false]
+        },
+        "triplicities": {
+          "title": "Triplicity Element Map",
+          "description": "Mapping of signs or suits to classical elements.",
+          "type": "object",
+          "minProperties": 1,
+          "unevaluatedProperties": false,
+          "properties": {
+            "fire": {
+              "type": "array",
+              "items": { "type": "string" },
+              "examples": [["wands", "aries", "leo", "sagittarius"]]
+            },
+            "water": {
+              "type": "array",
+              "items": { "type": "string" },
+              "examples": [["cups", "cancer", "scorpio", "pisces"]]
+            },
+            "air": {
+              "type": "array",
+              "items": { "type": "string" },
+              "examples": [["swords", "gemini", "libra", "aquarius"]]
+            },
+            "earth": {
+              "type": "array",
+              "items": { "type": "string" },
+              "examples": [["pentacles", "taurus", "virgo", "capricorn"]]
+            }
+          }
+        },
+        "friendships": {
+          "title": "Elemental Affinities",
+          "description": "Pairs of elements and their mutual affinity.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "minProperties": 1,
+            "unevaluatedProperties": false,
+            "required": ["elementA", "elementB", "affinity"],
+            "properties": {
+              "elementA": { "type": "string", "examples": ["fire"] },
+              "elementB": { "type": "string", "examples": ["air"] },
+              "affinity": {
+                "type": "string",
+                "enum": ["friendly", "inimical", "neutral"],
+                "examples": ["friendly", "inimical", "neutral"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "spreads": {
+      "title": "Catalog Spreads",
+      "description": "Array of complete valid spread definitions indexed in this catalog.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/tarot-spread-definition-2.0.0.schema.json"
+      }
+    }
+  },
+  "$defs": {
+    "catalogMetadata": {
+      "title": "CatalogMetadataDefinition",
+      "description": "Registry provenance and licensing details.",
+      "type": "object",
+      "minProperties": 1,
+      "unevaluatedProperties": false,
+      "required": ["title", "version", "updatedAt"],
+      "properties": {
+        "title": {
+          "title": "Catalog Title",
+          "description": "Name of the spread catalog.",
+          "type": "string",
+          "examples": ["Arcana Schema Canonical Spread Catalog"]
+        },
+        "description": {
+          "title": "Catalog Description",
+          "description": "Scope and purpose of this spread collection.",
+          "type": "string",
+          "examples": ["Standard canonical reference spreads for divination and decision analysis."]
+        },
+        "version": {
+          "title": "Catalog Version",
+          "description": "Version string of the catalog release.",
+          "type": "string",
+          "examples": ["2.0.0"]
+        },
+        "maintainer": {
+          "title": "Maintainer",
+          "description": "Individual, organization, or working group maintaining the catalog.",
+          "type": "string",
+          "examples": ["Arcana Schema Working Group"]
+        },
+        "repository": {
+          "title": "Repository URL",
+          "description": "URL of the source repository hosting the catalog.",
+          "type": "string",
+          "format": "uri",
+          "examples": ["https://github.com/arcana-schema/catalog"]
+        },
+        "updatedAt": {
+          "title": "Updated Timestamp",
+          "description": "ISO 8601 UTC timestamp of the last revision.",
+          "type": "string",
+          "format": "date-time",
+          "examples": ["2026-09-26T12:00:00Z"]
+        },
+        "license": {
+          "title": "Catalog License",
+          "description": "Open license governing the catalog dataset.",
+          "type": "string",
+          "examples": ["CC-BY-4.0", "MIT"]
+        }
+      }
+    }
+  }
+}

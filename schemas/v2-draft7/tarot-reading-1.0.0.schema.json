@@ -1,0 +1,362 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2-draft7/tarot-reading-1.0.0.schema.json",
+  "title": "TarotReading",
+  "description": "Specification for an immutable or updated record of a performed tarot reading: links to a spread template, holds drawn cards per slot, query context, and synthesis.",
+  "type": "object",
+  "minProperties": 1,
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "readingId",
+    "spreadId",
+    "drawnAt",
+    "cards"
+  ],
+  "properties": {
+    "@context": {
+      "title": "JSON-LD Context URL",
+      "description": "Optional JSON-LD context URL for Schema.org semantic interoperability and graph expansion.",
+      "type": "string",
+      "format": "uri",
+      "enum": [
+        "https://schema.org",
+        "https://arcanaschema.org/contexts/tarot.jsonld"
+      ],
+      "examples": [
+        "https://schema.org",
+        "https://arcanaschema.org/contexts/tarot.jsonld"
+      ]
+    },
+    "@type": {
+      "title": "Schema.org Type",
+      "description": "Schema.org entity type corresponding to a performed divination event or action.",
+      "type": "string",
+      "enum": [
+        "Event",
+        "Action"
+      ],
+      "examples": [
+        "Event",
+        "Action"
+      ]
+    },
+    "schemaVersion": {
+      "title": "Specification Version",
+      "description": "Semantic version of the TarotReading schema specification.",
+      "type": "string",
+      "const": "1.0.0",
+      "examples": [
+        "1.0.0"
+      ]
+    },
+    "readingId": {
+      "title": "Reading UUID Identifier",
+      "description": "Unique UUID v4 identifier for this reading session.",
+      "type": "string",
+      "format": "uuid",
+      "examples": [
+        "7d9c6b84-48f5-442a-9e12-b9e315538e82",
+        "550e8400-e29b-41d4-a716-446655440000"
+      ]
+    },
+    "spreadId": {
+      "title": "Spread Template Identifier",
+      "description": "Identifier of the spread definition used for this reading.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "examples": [
+        "past-present-future",
+        "celtic-cross"
+      ]
+    },
+    "variantId": {
+      "title": "Variant Identifier",
+      "description": "Optional reading variant identifier if a variant was selected.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "examples": [
+        "mind-body-spirit"
+      ]
+    },
+    "question": {
+      "title": "Inquiry Question",
+      "description": "The querent's question or focal inquiry topic formulating the reading.",
+      "type": "string",
+      "examples": [
+        "What energy should I cultivate for my upcoming creative venture?"
+      ]
+    },
+    "querent": {
+      "title": "Querent Profile",
+      "description": "Information about the subject seeking insight.",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Querent Name",
+          "description": "Name or pseudonym of the querent.",
+          "type": "string",
+          "examples": [
+            "Alice",
+            "Seeker"
+          ]
+        },
+        "significator": {
+          "title": "Significator Card",
+          "description": "Card ID chosen as querent significator.",
+          "type": "string",
+          "examples": [
+            "court-queen-swords",
+            "major-01-the-magician"
+          ]
+        }
+      }
+    },
+    "reader": {
+      "title": "Reader Profile",
+      "description": "Information regarding the practitioner conducting the reading.",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Reader Name",
+          "description": "Name of the tarot practitioner.",
+          "type": "string",
+          "examples": [
+            "Morgan le Fay",
+            "Hermetic Reader"
+          ]
+        },
+        "system": {
+          "title": "Tradition System",
+          "description": "Reading lineage or tradition (e.g. 'RWS', 'Thoth', 'Marseille').",
+          "type": "string",
+          "examples": [
+            "RWS",
+            "Thoth",
+            "Marseille"
+          ]
+        }
+      }
+    },
+    "drawnAt": {
+      "title": "Draw Timestamp",
+      "description": "ISO 8601 UTC timestamp when cards were drawn.",
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2026-09-26T12:00:00Z"
+      ]
+    },
+    "startDate": {
+      "title": "Schema.org Start Date",
+      "description": "Schema.org Event startDate mapping for drawnAt.",
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2026-09-26T12:00:00Z"
+      ]
+    },
+    "deck": {
+      "title": "Deck Metadata",
+      "description": "Information on the physical or digital tarot deck utilized.",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Deck Name",
+          "description": "Name or edition of the physical or digital deck used.",
+          "type": "string",
+          "examples": [
+            "Smith-Waite Centennial Tarot Deck",
+            "Hermetic Tarot"
+          ]
+        },
+        "publisher": {
+          "title": "Publisher",
+          "description": "Publishing house or creator.",
+          "type": "string",
+          "examples": [
+            "U.S. Games Systems",
+            "Lo Scarabeo"
+          ]
+        },
+        "reversals": {
+          "title": "Reversals Active",
+          "description": "Whether reversals were factored into this draw.",
+          "type": "boolean",
+          "default": false,
+          "examples": [
+            true,
+            false
+          ]
+        }
+      }
+    },
+    "cards": {
+      "title": "Drawn Cards",
+      "description": "The cards drawn into the respective slots of the spread.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/drawnCard"
+      }
+    },
+    "interpretation": {
+      "title": "Synthesis Interpretation",
+      "description": "Reader's synthesis of the overall card array.",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "title": "Summary",
+          "description": "Core thesis of the reading.",
+          "type": "string",
+          "examples": [
+            "Clear path forward once initial doubt is released."
+          ]
+        },
+        "elementalBalance": {
+          "title": "Elemental Balance",
+          "description": "Count of cards belonging to each elemental domain.",
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": false,
+          "properties": {
+            "fire": {
+              "type": "integer",
+              "examples": [
+                1
+              ]
+            },
+            "water": {
+              "type": "integer",
+              "examples": [
+                0
+              ]
+            },
+            "air": {
+              "type": "integer",
+              "examples": [
+                2
+              ]
+            },
+            "earth": {
+              "type": "integer",
+              "examples": [
+                0
+              ]
+            },
+            "dominant": {
+              "type": "string",
+              "examples": [
+                "air"
+              ]
+            }
+          }
+        },
+        "synthesis": {
+          "title": "Narrative Synthesis",
+          "description": "Detailed multi-paragraph breakdown.",
+          "type": "string",
+          "examples": [
+            "The Magician in past position provided mastery..."
+          ]
+        },
+        "actionableAdvice": {
+          "title": "Actionable Advice",
+          "description": "Concrete steps recommended for the querent.",
+          "type": "string",
+          "examples": [
+            "Prioritize clear documentation over premature optimization."
+          ]
+        }
+      }
+    },
+    "notes": {
+      "title": "Session Notes",
+      "description": "General practitioner or querent reflection notes.",
+      "type": "string",
+      "examples": [
+        "Reading conducted in morning light with breath meditation."
+      ]
+    },
+    "tags": {
+      "title": "Classification Tags",
+      "description": "Thematic tags for organizing reading archives.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "examples": [
+        [
+          "career",
+          "transition"
+        ]
+      ]
+    }
+  },
+  "definitions": {
+    "drawnCard": {
+      "title": "DrawnCardRecord",
+      "description": "Record of an individual card placed into a specific spread slot.",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "required": [
+        "slotId",
+        "cardId",
+        "orientation"
+      ],
+      "properties": {
+        "slotId": {
+          "title": "Slot Identifier",
+          "description": "Matches the slot id in the corresponding spread definition.",
+          "type": "string",
+          "examples": [
+            "past",
+            "present",
+            "future"
+          ]
+        },
+        "cardId": {
+          "title": "Card Identifier",
+          "description": "Standardized card identifier (e.g. 'major-00-the-fool', 'cups-03', 'swords-king').",
+          "type": "string",
+          "pattern": "^[a-z0-9_-]+$",
+          "examples": [
+            "major-01-the-magician",
+            "swords-08",
+            "wands-03"
+          ]
+        },
+        "orientation": {
+          "title": "Orientation",
+          "description": "Card orientation when revealed.",
+          "type": "string",
+          "enum": [
+            "upright",
+            "reversed"
+          ],
+          "examples": [
+            "upright",
+            "reversed"
+          ]
+        },
+        "notes": {
+          "title": "Card Positional Notes",
+          "description": "Specific interpretation notes for this card in this position.",
+          "type": "string",
+          "examples": [
+            "Foundational competence and clear focus."
+          ]
+        }
+      }
+    }
+  }
+}

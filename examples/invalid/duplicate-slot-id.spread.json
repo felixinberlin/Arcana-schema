@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "invalid-duplicate-slot-id",
+  "name": "Invalid: Duplicate Slot ID",
+  "summary": "Demonstrates cross-field violation: slot IDs must be unique within a spread.",
+  "layoutType": "linear",
+  "difficulty": "beginner",
+  "deckContract": {
+    "minCards": 3
+  },
+  "slots": [
+    { "id": "card-alpha", "order": 1, "role": "First Card", "layout": { "x": 0.2, "y": 0.5 } },
+    { "id": "card-alpha", "order": 2, "role": "Second Card (Duplicate ID)", "layout": { "x": 0.5, "y": 0.5 } },
+    { "id": "card-beta",  "order": 3, "role": "Third Card", "layout": { "x": 0.8, "y": 0.5 } }
+  ],
+  "relations": [
+    { "source": "card-alpha", "target": "card-beta", "type": "leads_to" }
+  ]
+}

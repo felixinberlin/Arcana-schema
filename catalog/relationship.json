@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "relationship",
+  "name": "Relationship Mirror",
+  "summary": "A six-card dyadic spread mapping two individuals, their mutual connection, underlying roots, and relational trajectory.",
+  "layoutType": "custom",
+  "difficulty": "intermediate",
+  "author": "Traditional",
+  "license": "CC-BY-4.0",
+  "tags": ["relationship", "love", "partnership", "communication"],
+  "instructions": {
+    "preparation": "Ground your heart center. Hold the shared connection in conscious presence.",
+    "shuffle": "Shuffle while acknowledging both subjective experiences without prejudice.",
+    "drawing": "Card 1 (Left column: Querent), Card 2 (Right column: Partner), Card 3 (Center top: The Connection), Card 4 (Center bottom: Foundation), Card 5 (Bridge: Friction/Challenge), Card 6 (Crown: Potential).",
+    "synthesis": "Observe how Card 1 mirrors Card 2, how Card 4 supports Card 3, and how Card 5 tests the union."
+  },
+  "deckContract": {
+    "minCards": 6,
+    "deckType": "full_78",
+    "allowReversals": true,
+    "requiresSignificator": false
+  },
+  "slots": [
+    {
+      "id": "querent-state",
+      "order": 1,
+      "role": "Querent's Energy",
+      "description": "How the querent perceives the relationship, feelings, and behavioral posture.",
+      "layout": { "x": 0.2, "y": 0.35, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "partner-state",
+      "order": 2,
+      "role": "Partner's Energy",
+      "description": "How the other party feels, current disposition, and unspoken desires.",
+      "layout": { "x": 0.8, "y": 0.35, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "relational-dynamic",
+      "order": 3,
+      "role": "The Dynamic Connection",
+      "description": "The active chemistry, shared communication field, and current synergy between both.",
+      "layout": { "x": 0.5, "y": 0.2, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "relational-foundation",
+      "order": 4,
+      "role": "Shared Foundation",
+      "description": "The shared history, core values, or karmic agreements bonding the couple.",
+      "layout": { "x": 0.5, "y": 0.75, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "relational-obstacle",
+      "order": 5,
+      "role": "The Friction / Challenge",
+      "description": "Misunderstandings, external strains, or shadow projections hindering unity.",
+      "layout": { "x": 0.5, "y": 0.48, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "relational-potential",
+      "order": 6,
+      "role": "Future Trajectory",
+      "description": "Where the partnership is heading if mutual understanding is cultivated.",
+      "layout": { "x": 0.5, "y": 0.05, "rotation": 0, "zIndex": 0 }
+    }
+  ],
+  "relations": [
+    {
+      "source": "querent-state",
+      "target": "partner-state",
+      "type": "mirrors",
+      "label": "Dyadic Reflection"
+    },
+    {
+      "source": "relational-foundation",
+      "target": "relational-dynamic",
+      "type": "grounds",
+      "label": "Bedrock Supporting Dynamic"
+    },
+    {
+      "source": "relational-obstacle",
+      "target": "relational-dynamic",
+      "type": "crosses",
+      "label": "Friction Straining Synergy"
+    },
+    {
+      "source": "relational-dynamic",
+      "target": "relational-potential",
+      "type": "leads_to",
+      "label": "Unfolds into Future"
+    }
+  ]
+}

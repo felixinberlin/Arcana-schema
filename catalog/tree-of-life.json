@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "tree-of-life",
+  "name": "Tree of Life",
+  "summary": "The esoteric ten-card layout mapping the Hermetic Qabalistic Tree of Life, descending from supreme spirit to dense physical reality.",
+  "layoutType": "symbolic",
+  "difficulty": "expert",
+  "author": "Hermetic Order of the Golden Dawn",
+  "license": "CC-BY-4.0",
+  "tags": ["esoteric", "qabalah", "golden-dawn", "in-depth", "expert"],
+  "instructions": {
+    "preparation": "Clear your psychic field through invocation, lighting white candle, or rhythmic breath.",
+    "shuffle": "Shuffle the full 78-card deck contemplating the lightning flash of creation from Kether to Malkuth.",
+    "drawing": "Deal 10 cards descending the Otz Chim (Tree of Life): 1 Crown, 2 Wisdom, 3 Understanding, 4 Mercy, 5 Severity, 6 Beauty/Heart, 7 Victory, 8 Glory, 9 Foundation, 10 Kingdom.",
+    "synthesis": "Examine the three pillars (Mercy, Severity, Mildness) and the four worlds (Atziluth, Briah, Yetzirah, Assiah)."
+  },
+  "deckContract": {
+    "minCards": 10,
+    "deckType": "full_78",
+    "allowReversals": true,
+    "requiresSignificator": false
+  },
+  "slots": [
+    {
+      "id": "kether",
+      "order": 1,
+      "role": "1. Kether (The Crown)",
+      "description": "Supreme spiritual will, highest source inspiration, divine origin.",
+      "layout": { "x": 0.5, "y": 0.08, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "chokmah",
+      "order": 2,
+      "role": "2. Chokmah (Wisdom)",
+      "description": "Active creative spark, dynamic masculine impulse, pure initiative.",
+      "layout": { "x": 0.75, "y": 0.22, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "binah",
+      "order": 3,
+      "role": "3. Binah (Understanding)",
+      "description": "Formative mother, structural boundary, receptive discipline.",
+      "layout": { "x": 0.25, "y": 0.22, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "chesed",
+      "order": 4,
+      "role": "4. Chesed (Mercy)",
+      "description": "Benevolent expansion, vision, generosity, opportunity.",
+      "layout": { "x": 0.75, "y": 0.42, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "geburah",
+      "order": 5,
+      "role": "5. Geburah (Severity)",
+      "description": "Critical judgment, necessary pruning, strength, overcoming trial.",
+      "layout": { "x": 0.25, "y": 0.42, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "tiphareth",
+      "order": 6,
+      "role": "6. Tiphareth (Beauty & Harmony)",
+      "description": "Solar heart center, ego harmony, integration, conscious self.",
+      "layout": { "x": 0.5, "y": 0.52, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "netzach",
+      "order": 7,
+      "role": "7. Netzach (Victory)",
+      "description": "Instinctual desires, emotions, passion, artistic creation.",
+      "layout": { "x": 0.75, "y": 0.68, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "hod",
+      "order": 8,
+      "role": "8. Hod (Glory / Splendor)",
+      "description": "Intellectual logic, communication, systems, analysis.",
+      "layout": { "x": 0.25, "y": 0.68, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "yesod",
+      "order": 9,
+      "role": "9. Yesod (Foundation)",
+      "description": "Astral matrix, subconscious beliefs, dreams, emotional bedrock.",
+      "layout": { "x": 0.5, "y": 0.8, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "malkuth",
+      "order": 10,
+      "role": "10. Malkuth (The Kingdom)",
+      "description": "Physical embodiment, concrete material manifestation, daily realm.",
+      "layout": { "x": 0.5, "y": 0.94, "rotation": 0, "zIndex": 0 }
+    }
+  ],
+  "relations": [
+    {
+      "source": "kether",
+      "target": "chokmah",
+      "type": "leads_to",
+      "label": "Lightning Flash 1->2"
+    },
+    {
+      "source": "chokmah",
+      "target": "binah",
+      "type": "mirrors",
+      "label": "Wisdom & Understanding Duality"
+    },
+    {
+      "source": "binah",
+      "target": "chesed",
+      "type": "leads_to",
+      "label": "Crossing the Abyss"
+    },
+    {
+      "source": "chesed",
+      "target": "geburah",
+      "type": "opposes",
+      "label": "Mercy vs Severity Balance"
+    },
+    {
+      "source": "chesed",
+      "target": "tiphareth",
+      "type": "leads_to",
+      "label": "Descent to Sun Center"
+    },
+    {
+      "source": "geburah",
+      "target": "tiphareth",
+      "type": "leads_to",
+      "label": "Descent to Sun Center"
+    },
+    {
+      "source": "tiphareth",
+      "target": "yesod",
+      "type": "leads_to",
+      "label": "Central Column Flow"
+    },
+    {
+      "source": "netzach",
+      "target": "hod",
+      "type": "opposes",
+      "label": "Emotion vs Intellect"
+    },
+    {
+      "source": "yesod",
+      "target": "malkuth",
+      "type": "culminates_in",
+      "label": "Subconscious to Physical Manifestation"
+    }
+  ]
+}

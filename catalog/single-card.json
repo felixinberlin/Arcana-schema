@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "single-card",
+  "name": "Single Card Draw",
+  "summary": "The foundational daily focus, quick query, or clarifier draw.",
+  "layoutType": "linear",
+  "difficulty": "beginner",
+  "author": "Traditional",
+  "license": "CC-BY-4.0",
+  "tags": ["daily", "beginner", "clarity", "reflection"],
+  "instructions": {
+    "preparation": "Take three deep breaths, formulate a singular intention or ask 'What energy asks for my attention today?'",
+    "shuffle": "Shuffle the deck until you feel an intuitive stop.",
+    "drawing": "Draw the top card or cut the deck and take the cut card.",
+    "synthesis": "Meditate on the imagery, symbols, and core essence of the card in relation to your day or question."
+  },
+  "deckContract": {
+    "minCards": 1,
+    "deckType": "full_78",
+    "allowReversals": true,
+    "requiresSignificator": false
+  },
+  "slots": [
+    {
+      "id": "focus",
+      "order": 1,
+      "role": "Daily Focus / Core Guidance",
+      "description": "The central theme, active energy, or lesson for the query.",
+      "keywords": ["focus", "message", "theme"],
+      "layout": {
+        "x": 0.5,
+        "y": 0.5,
+        "rotation": 0,
+        "zIndex": 0
+      }
+    }
+  ],
+  "relations": []
+}

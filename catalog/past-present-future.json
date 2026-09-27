@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "past-present-future",
+  "name": "Past, Present, Future",
+  "summary": "The classic three-card linear progression mapping temporal development and trajectory.",
+  "layoutType": "linear",
+  "difficulty": "beginner",
+  "author": "Traditional",
+  "license": "CC-BY-4.0",
+  "tags": ["timeline", "general", "classic", "beginner"],
+  "instructions": {
+    "preparation": "Ground your focus on the situation at hand and recognize time as a fluid narrative continuum.",
+    "shuffle": "Thoroughly riffle or overhand shuffle while contemplating how prior choices led to this moment.",
+    "drawing": "Deal three cards from left to right: Slot 1 (Past), Slot 2 (Present), Slot 3 (Future).",
+    "synthesis": "Observe the progression from left to right. Are suits transitioning? Does the energy accelerate, ground, or resolve?"
+  },
+  "deckContract": {
+    "minCards": 3,
+    "deckType": "full_78",
+    "allowReversals": true,
+    "requiresSignificator": false
+  },
+  "readingVariants": [
+    {
+      "id": "mind-body-spirit",
+      "name": "Mind, Body, Spirit",
+      "description": "Holistic self-checkup inspecting mental state, physical vitality, and spiritual alignment.",
+      "slotOverrides": [
+        { "slotId": "past", "role": "Mind", "description": "Mental focus, thoughts, and cognitive belief systems." },
+        { "slotId": "present", "role": "Body", "description": "Physical health, material environment, and bodily somatic state." },
+        { "slotId": "future", "role": "Spirit", "description": "Spiritual direction, intuitive calling, and higher consciousness." }
+      ]
+    },
+    {
+      "id": "situation-obstacle-advice",
+      "name": "Situation, Obstacle, Advice",
+      "description": "Pragmatic problem-solving trio.",
+      "slotOverrides": [
+        { "slotId": "past", "role": "Current Situation", "description": "The exact state of affairs right now." },
+        { "slotId": "present", "role": "Immediate Obstacle", "description": "The barrier, friction, or challenge in play." },
+        { "slotId": "future", "role": "Actionable Advice", "description": "Recommended course of action to overcome the hurdle." }
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "id": "past",
+      "order": 1,
+      "role": "Past Foundations",
+      "description": "Past events, foundational conditioning, and roots directly shaping the present state.",
+      "keywords": ["origin", "history", "karma", "lessons"],
+      "layout": {
+        "x": 0.2,
+        "y": 0.5,
+        "rotation": 0,
+        "zIndex": 0
+      }
+    },
+    {
+      "id": "present",
+      "order": 2,
+      "role": "Present Reality",
+      "description": "The active energy, immediate circumstances, and conscious attitude right now.",
+      "keywords": ["now", "current", "awareness", "status"],
+      "layout": {
+        "x": 0.5,
+        "y": 0.5,
+        "rotation": 0,
+        "zIndex": 0
+      }
+    },
+    {
+      "id": "future",
+      "order": 3,
+      "role": "Likely Future Outcome",
+      "description": "The prospective outcome if current behaviors and trajectories remain unchanged.",
+      "keywords": ["outcome", "trajectory", "horizon", "destination"],
+      "layout": {
+        "x": 0.8,
+        "y": 0.5,
+        "rotation": 0,
+        "zIndex": 0
+      }
+    }
+  ],
+  "relations": [
+    {
+      "source": "past",
+      "target": "present",
+      "type": "leads_to",
+      "label": "Causes & Evolves Into",
+      "weight": 0.9
+    },
+    {
+      "source": "present",
+      "target": "future",
+      "type": "leads_to",
+      "label": "Projected Flow Into",
+      "weight": 1.0
+    }
+  ]
+}

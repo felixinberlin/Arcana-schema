@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "past-present-future",
+  "name": "Past, Present, Future",
+  "summary": "Classic 3-card linear temporal spread.",
+  "layoutType": "linear",
+  "difficulty": "beginner",
+  "deckContract": {
+    "minCards": 3,
+    "deckType": "full_78",
+    "allowReversals": true
+  },
+  "slots": [
+    { "id": "past", "order": 1, "role": "Past Foundations", "layout": { "x": 0.2, "y": 0.5 } },
+    { "id": "present", "order": 2, "role": "Present Reality", "layout": { "x": 0.5, "y": 0.5 } },
+    { "id": "future", "order": 3, "role": "Future Horizon", "layout": { "x": 0.8, "y": 0.5 } }
+  ],
+  "relations": [
+    { "source": "past", "target": "present", "type": "leads_to" },
+    { "source": "present", "target": "future", "type": "leads_to" }
+  ]
+}

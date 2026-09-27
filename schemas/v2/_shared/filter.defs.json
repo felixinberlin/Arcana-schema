@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/_shared/filter.defs.json",
+  "title": "CardFilterConstraintDefinition",
+  "description": "Subdeck filtering rules restricting which cards are eligible to be dealt into a slot.",
+  "type": "object",
+  "minProperties": 1,
+  "unevaluatedProperties": false,
+  "properties": {
+    "allowedArcana": {
+      "title": "Allowed Arcana Category",
+      "description": "Subdivision of the deck permissible for placement in this slot.",
+      "type": "string",
+      "enum": ["any", "major_only", "minor_only", "court_only"],
+      "default": "any",
+      "examples": ["any", "major_only", "minor_only", "court_only"]
+    },
+    "allowedSuits": {
+      "title": "Allowed Suits",
+      "description": "Specific elemental suits permitted to occupy this slot.",
+      "type": "array",
+      "items": {
+        "title": "Suit",
+        "description": "One of the four traditional tarot suits.",
+        "type": "string",
+        "enum": ["wands", "cups", "swords", "pentacles"],
+        "examples": ["wands", "cups", "swords", "pentacles"]
+      },
+      "examples": [
+        ["cups", "swords"],
+        ["wands", "pentacles"]
+      ]
+    },
+    "fixedCard": {
+      "title": "Fixed Required Card",
+      "description": "Specific canonical card identifier required to occupy this slot (e.g. 'major-00-the-fool').",
+      "type": "string",
+      "examples": ["major-00-the-fool", "court-queen-cups"]
+    }
+  }
+}

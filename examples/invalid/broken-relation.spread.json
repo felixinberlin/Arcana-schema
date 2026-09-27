@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "invalid-broken-relation",
+  "name": "Invalid: Broken Relation",
+  "summary": "Demonstrates cross-field violation: relation source or target points to a non-existent slot.",
+  "layoutType": "linear",
+  "difficulty": "beginner",
+  "deckContract": {
+    "minCards": 2
+  },
+  "slots": [
+    { "id": "past", "order": 1, "role": "Past", "layout": { "x": 0.3, "y": 0.5 } },
+    { "id": "present", "order": 2, "role": "Present", "layout": { "x": 0.7, "y": 0.5 } }
+  ],
+  "relations": [
+    { "source": "past", "target": "ghost-slot-does-not-exist", "type": "leads_to" }
+  ]
+}

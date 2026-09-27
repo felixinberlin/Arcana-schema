@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "2.0.0",
+  "metadata": {
+    "title": "Arcana Schema Standard Spread Catalog",
+    "description": "Curated, canonical catalog of traditional and modern tarot spread definitions conforming to tarot-spread-definition.schema.json v2.0.0.",
+    "version": "2.0.0",
+    "maintainer": "Arcana Schema Working Group",
+    "repository": "https://github.com/arcana-schema/tarot-schema",
+    "updatedAt": "2026-09-26T12:00:00Z",
+    "license": "CC-BY-4.0"
+  },
+  "spreads": [
+    {
+      "id": "single-card",
+      "name": "Single Card Draw",
+      "layoutType": "linear",
+      "difficulty": "beginner",
+      "slotCount": 1,
+      "minCards": 1,
+      "tags": ["daily", "beginner", "clarity", "reflection"],
+      "file": "single-card.json"
+    },
+    {
+      "id": "past-present-future",
+      "name": "Past, Present, Future",
+      "layoutType": "linear",
+      "difficulty": "beginner",
+      "slotCount": 3,
+      "minCards": 3,
+      "tags": ["timeline", "general", "classic", "beginner"],
+      "file": "past-present-future.json"
+    },
+    {
+      "id": "decision",
+      "name": "Two-Path Decision",
+      "layoutType": "triangular",
+      "difficulty": "intermediate",
+      "slotCount": 5,
+      "minCards": 5,
+      "tags": ["choices", "crossroads", "decision", "career"],
+      "file": "decision.json"
+    },
+    {
+      "id": "relationship",
+      "name": "Relationship Mirror",
+      "layoutType": "custom",
+      "difficulty": "intermediate",
+      "slotCount": 6,
+      "minCards": 6,
+      "tags": ["relationship", "love", "partnership", "communication"],
+      "file": "relationship.json"
+    },
+    {
+      "id": "horseshoe",
+      "name": "Horseshoe Spread",
+      "layoutType": "linear",
+      "difficulty": "intermediate",
+      "slotCount": 7,
+      "minCards": 7,
+      "tags": ["arch", "problem-solving", "clarity", "seven-card"],
+      "file": "horseshoe.json"
+    },
+    {
+      "id": "celtic-cross",
+      "name": "Celtic Cross",
+      "layoutType": "cross",
+      "difficulty": "advanced",
+      "slotCount": 10,
+      "minCards": 10,
+      "tags": ["comprehensive", "classic", "in-depth", "gold-standard"],
+      "file": "celtic-cross.json"
+    },
+    {
+      "id": "tree-of-life",
+      "name": "Tree of Life",
+      "layoutType": "symbolic",
+      "difficulty": "expert",
+      "slotCount": 10,
+      "minCards": 10,
+      "tags": ["esoteric", "qabalah", "golden-dawn", "in-depth", "expert"],
+      "file": "tree-of-life.json"
+    }
+  ]
+}

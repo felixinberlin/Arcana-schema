@@ -1,0 +1,65 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "arcana": "https://arcanaschema.org/terms/",
+    "id": "@id",
+    "type": "@type",
+    "name": "schema:name",
+    "description": "schema:description",
+    "summary": "schema:abstract",
+    "author": "schema:author",
+    "license": "schema:license",
+    "tags": "schema:keywords",
+    "slots": {
+      "@id": "schema:hasDefinedTerm",
+      "@container": "@set"
+    },
+    "hasDefinedTerm": {
+      "@id": "schema:hasDefinedTerm",
+      "@container": "@set"
+    },
+    "role": "schema:name",
+    "order": "schema:position",
+    "keywords": "schema:keywords",
+    "meaning": "schema:description",
+    "relations": {
+      "@id": "schema:additionalProperty",
+      "@container": "@set"
+    },
+    "deckContract": {
+      "@id": "schema:additionalProperty"
+    },
+    "readingVariants": {
+      "@id": "schema:sameAs",
+      "@container": "@set"
+    },
+    "drawnAt": {
+      "@id": "schema:startDate",
+      "@type": "schema:DateTime"
+    },
+    "startDate": {
+      "@id": "schema:startDate",
+      "@type": "schema:DateTime"
+    },
+    "question": "schema:about",
+    "querent": {
+      "@id": "schema:attendee"
+    },
+    "reader": {
+      "@id": "schema:performer"
+    },
+    "deck": {
+      "@id": "schema:instrument"
+    },
+    "cards": {
+      "@id": "schema:object",
+      "@container": "@set"
+    },
+    "interpretation": {
+      "@id": "schema:result"
+    },
+    "notes": "schema:disambiguatingDescription"
+  }
+}

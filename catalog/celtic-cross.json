@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "celtic-cross",
+  "name": "Celtic Cross",
+  "summary": "The archetypal ten-card comprehensive inquiry spread examining core tensions, conscious and unconscious drivers, and evolutionary outcome.",
+  "layoutType": "cross",
+  "difficulty": "advanced",
+  "author": "Arthur Edward Waite (1910)",
+  "license": "CC-BY-4.0",
+  "tags": ["comprehensive", "classic", "in-depth", "gold-standard"],
+  "instructions": {
+    "preparation": "Define a deep, multi-layered inquiry or life assessment. Ground yourself in the symbolic center.",
+    "shuffle": "Shuffle methodically. If using a significator, position it before laying Slot 1.",
+    "drawing": "Place Card 1 in the center, cross it with Card 2 horizontally. Lay Card 3 below, Card 4 to the left (behind), Card 5 above, Card 6 to the right (before). Lay Cards 7 through 10 as an ascending vertical staff on the right side.",
+    "synthesis": "Read the small central cross (1 & 2), then the surrounding cross (3, 4, 5, 6), and finally integrate the staff of ascent (7, 8, 9, 10) pointing toward final resolution."
+  },
+  "deckContract": {
+    "minCards": 10,
+    "deckType": "full_78",
+    "allowReversals": true,
+    "requiresSignificator": false
+  },
+  "slots": [
+    {
+      "id": "present-heart",
+      "order": 1,
+      "role": "The Heart of the Matter",
+      "description": "The central atmosphere, primary condition, or querent's present circumstance.",
+      "keywords": ["center", "core", "situation"],
+      "layout": { "x": 0.32, "y": 0.5, "rotation": 0, "zIndex": 1 }
+    },
+    {
+      "id": "challenge-crossing",
+      "order": 2,
+      "role": "The Crossing Force",
+      "description": "What crosses you for good or ill; the immediate tension, test, or complementary catalyst.",
+      "keywords": ["challenge", "friction", "obstacle", "catalyst"],
+      "layout": { "x": 0.32, "y": 0.5, "rotation": 90, "zIndex": 2 }
+    },
+    {
+      "id": "foundation-subconscious",
+      "order": 3,
+      "role": "The Root & Foundation",
+      "description": "Subconscious motivations, root origins, and underlying bedrock of the inquiry.",
+      "keywords": ["root", "unconscious", "bedrock"],
+      "layout": { "x": 0.32, "y": 0.8, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "past-passing",
+      "order": 4,
+      "role": "The Passing Past",
+      "description": "Influences that are receding or have recently peaked and are losing dominance.",
+      "keywords": ["behind", "receding", "history"],
+      "layout": { "x": 0.15, "y": 0.5, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "crown-conscious",
+      "order": 5,
+      "role": "The Crown & Potential",
+      "description": "Conscious thoughts, highest ideals, aspirations, and what may be attained.",
+      "keywords": ["crown", "conscious", "aspiration", "best-possible"],
+      "layout": { "x": 0.32, "y": 0.2, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "near-future",
+      "order": 6,
+      "role": "The Approaching Horizon",
+      "description": "Immediate forces, energies, and encounters entering the querent's life shortly.",
+      "keywords": ["approaching", "near-future", "entering"],
+      "layout": { "x": 0.49, "y": 0.5, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "querent-attitude",
+      "order": 7,
+      "role": "Self & Attitude",
+      "description": "Querent's posture, self-concept, perceived stance, and inner psychological lens.",
+      "keywords": ["self", "stance", "mindset"],
+      "layout": { "x": 0.78, "y": 0.86, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "environment-external",
+      "order": 8,
+      "role": "External Environment",
+      "description": "Social field, colleagues, home surroundings, and external forces outside direct control.",
+      "keywords": ["environment", "others", "external"],
+      "layout": { "x": 0.78, "y": 0.62, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "hopes-fears",
+      "order": 9,
+      "role": "Hopes and Fears",
+      "description": "Secret anxieties, twin hopes, expectations, or psychological vulnerabilities.",
+      "keywords": ["hopes", "fears", "desire", "anxiety"],
+      "layout": { "x": 0.78, "y": 0.38, "rotation": 0, "zIndex": 0 }
+    },
+    {
+      "id": "final-outcome",
+      "order": 10,
+      "role": "Final Culmination & Outcome",
+      "description": "The cumulative result, long-term trajectory, and spiritual harvest of the query.",
+      "keywords": ["outcome", "culmination", "resolution", "harvest"],
+      "layout": { "x": 0.78, "y": 0.14, "rotation": 0, "zIndex": 0 }
+    }
+  ],
+  "relations": [
+    {
+      "source": "challenge-crossing",
+      "target": "present-heart",
+      "type": "crosses",
+      "label": "Tension / Challenge"
+    },
+    {
+      "source": "foundation-subconscious",
+      "target": "present-heart",
+      "type": "grounds",
+      "label": "Subconscious Root Grounding"
+    },
+    {
+      "source": "crown-conscious",
+      "target": "present-heart",
+      "type": "crowns",
+      "label": "Conscious Crown"
+    },
+    {
+      "source": "past-passing",
+      "target": "present-heart",
+      "type": "leads_to",
+      "label": "Preceding Momentum"
+    },
+    {
+      "source": "present-heart",
+      "target": "near-future",
+      "type": "leads_to",
+      "label": "Immediate Horizon"
+    },
+    {
+      "source": "querent-attitude",
+      "target": "environment-external",
+      "type": "mirrors",
+      "label": "Inner vs Outer Reflection"
+    },
+    {
+      "source": "hopes-fears",
+      "target": "final-outcome",
+      "type": "leads_to",
+      "label": "Psychological Expectation Influence"
+    },
+    {
+      "source": "near-future",
+      "target": "final-outcome",
+      "type": "culminates_in",
+      "label": "Development to Outcome"
+    }
+  ]
+}

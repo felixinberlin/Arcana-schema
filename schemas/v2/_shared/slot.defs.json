@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/_shared/slot.defs.json",
+  "title": "SlotDefinition",
+  "description": "Definition of an individual card position within a spread, including its order, interpretive role, spatial layout, and deck constraints.",
+  "type": "object",
+  "minProperties": 1,
+  "unevaluatedProperties": false,
+  "required": ["id", "order", "role"],
+  "properties": {
+    "id": {
+      "title": "Slot Identifier",
+      "description": "Unique URL-safe kebab-case identifier for this position within the spread.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "examples": ["past", "present", "future", "subconscious", "external-influences"]
+    },
+    "order": {
+      "title": "Draw and Placement Order",
+      "description": "1-indexed continuous sequence indicating the order in which this card is drawn and laid out.",
+      "type": "integer",
+      "minimum": 1,
+      "examples": [1, 2, 3, 10]
+    },
+    "role": {
+      "title": "Positional Role Title",
+      "description": "Concise interpretive label designating the query facet represented by this card.",
+      "type": "string",
+      "minLength": 1,
+      "examples": ["Past Foundations", "Immediate Obstacle", "Subconscious Roots", "Likely Outcome"]
+    },
+    "description": {
+      "title": "Role Description",
+      "description": "Detailed explanation of what this card slot represents in the context of the query and synthesis.",
+      "type": "string",
+      "examples": [
+        "Events, emotional baggage, or ingrained beliefs that shaped the current situation.",
+        "The primary challenge or unexpected hurdle confronting the querent."
+      ]
+    },
+    "keywords": {
+      "title": "Thematic Keywords",
+      "description": "Quick associative keywords characterizing the energy of this slot.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "examples": [
+        ["origins", "karma", "history"],
+        ["conflict", "catalyst", "friction"]
+      ]
+    },
+    "layout": {
+      "title": "Slot Layout Coordinates",
+      "description": "Visual canvas coordinates and rotation angle for rendering this slot.",
+      "$ref": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/_shared/layout.defs.json"
+    },
+    "cardConstraint": {
+      "title": "Slot Card Filtering Constraints",
+      "description": "Subdeck filtering rules restricting which cards are eligible to be dealt into this slot.",
+      "$ref": "https://raw.githubusercontent.com/arcana-schema/schemas/main/schemas/v2/_shared/filter.defs.json"
+    }
+  }
+}
